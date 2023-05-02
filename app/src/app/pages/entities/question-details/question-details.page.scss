@@ -1,0 +1,40 @@
+
+.center{
+    margin-right: 30%;
+    margin-left: 35%;
+    #favv{
+        font-size: 35px;
+    }
+    .favourite{
+        color: yellow;
+    }
+}
+
+.lastAnswer{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 5%;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    .valid{
+        color: rgb(69, 196, 69);
+        font-size: 20px;
+    }
+    .failed{
+        color: red;
+        font-size: 20px;
+    }
+    .neutral{
+        color: gray;
+        font-size: 20px;
+    }
+}
+.reponseF{
+    color: red;
+    font-size: 25px;
+}
+.reponseV{
+    color: rgb(69, 196, 69);
+    font-size: 25px;
+}

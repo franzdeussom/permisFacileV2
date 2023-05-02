@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+      <ion-back-button slot="start"></ion-back-button>
+      <ion-title>Question {{ idQuestion }} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+        <span>{{idQuestion}} / {{question.length}}</span>
+
+        <div class="center">
+          <span (click)="favourite(idQuestion-1)" id="favv" [ngClass]="{'favourite': question[idQuestion-1].favourite } " text-center>
+            <ion-icon name='star' slot="end"></ion-icon>
+          </span>
+        </div>
+
+        <div class="lastAnswer">
+            <span slot="end" *ngIf="question[idQuestion-1].rep1 == 'TRUEANSWER'" class="valid"><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+            <span slot="end" *ngIf="question[idQuestion-1].rep1 == 'FALSEANSWER'" class="failed"><ion-icon name="close-circle-outline"></ion-icon></span>
+            <span slot="end" *ngIf="question[idQuestion-1].rep1 == 'NEUTRALANSWER'" class="neutral"><ion-icon name="remove-circle-outline"></ion-icon></span>
+
+            <span slot="end" *ngIf="question[idQuestion-1].rep2 == 'TRUEANSWER'" class="valid"><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+            <span slot="end" *ngIf="question[idQuestion-1].rep2 == 'FALSEANSWER'" class="failed"><ion-icon name="close-circle-outline"></ion-icon></span>
+            <span slot="end" *ngIf="question[idQuestion-1].rep2 == 'NEUTRALANSWER'" class="neutral"><ion-icon name="remove-circle-outline"></ion-icon></span>
+
+            <span slot="end" *ngIf="question[idQuestion-1].rep3 == 'TRUEANSWER'" class="valid"><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+            <span slot="end" *ngIf="question[idQuestion-1].rep3 == 'FALSEANSWER'" class="failed"><ion-icon name="close-circle-outline"></ion-icon></span>
+            <span slot="end" *ngIf="question[idQuestion-1].rep3 == 'NEUTRALANSWER'" class="neutral"><ion-icon name="remove-circle-outline"></ion-icon></span>
+        </div>
+  </ion-item>
+      <div class="ion-margin">
+        {{ question[idQuestion-1].intitule }}
+      </div>
+      <div class="card">
+         <ion-card>
+           <form>
+              <span *ngIf="question[idQuestion-1].image != null " >
+                <ion-img src={{urlImg}}{{question[idQuestion-1].image}}{{ext}}></ion-img>
+              </span>
+              <!--<span *ngIf="question[idQuestion-1].image == null " >
+                <ion-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCFPh1uq0tNSHGzCHs3ygthFo83ixQ_VVVwQ&usqp=CAU"></ion-img>
+              </span>-->
+              <br>
+              <span *ngIf="checkAns"><strong><em>Reponse: <span style="margin-left: 2%; color: rgb(49, 209, 49); font-size: 18px;" *ngIf="question[idQuestion-1].reponses[0].reponseUnique && reponseUnique.disableField"> {{ question[idQuestion-1].reponses[0].intitule }} </span></em></strong></span>
+
+              <div *ngIf="question[idQuestion-1].reponses[0].reponseUnique" >
+                <ion-item>
+                  <ion-label position="floating"> <h4> <em>Votre Reponse ici...</em> </h4> </ion-label>
+                  <ion-input type="text"  name="reponse" [disabled]="reponseUnique.disableField" [(ngModel)]="reponseUnique.reponse"></ion-input>
+                  <span class="reponseV" slot="end" *ngIf="question[idQuestion-1].reponses[0].intitule == reponseUnique.reponse && reponseUnique.disableField"><ion-icon name="checkmark-outline"></ion-icon> </span>
+                  <span class="reponseF" slot="end" *ngIf="question[idQuestion-1].reponses[0].intitule != reponseUnique.reponse && reponseUnique.disableField"><ion-icon name="close-outline"></ion-icon> </span>
+                </ion-item>
+              </div>
+
+              <div *ngIf="!question[idQuestion-1].reponses[0].reponseUnique" >
+                <ion-list *ngFor="let itemRep of question[idQuestion-1].reponses; let index = index ">
+
+                      <ion-item>
+
+                          <ion-checkbox slot="start" disabled [checked]="question[idQuestion-1].reponses[index].bonneReponse" color="success" *ngIf="checkAns" ></ion-checkbox>
+                          <ion-checkbox slot="start" [disabled]="checkAns" (click)="onCheck(idQuestion-1, index)"></ion-checkbox>
+
+                          <ion-label text-wrap> {{ itemRep.intitule }} </ion-label>
+
+                          <span class="reponseV" *ngIf="question[idQuestion-1].reponses[index].bonneReponse && checkAns && trouve && checked"><ion-icon name="checkmark-outline"></ion-icon></span>
+                          <span class="reponseF" *ngIf="!question[idQuestion-1].reponses[index].bonneReponse && checkAns && indexCheckbox == index"><ion-icon name="close-outline"></ion-icon></span>
+
+                        </ion-item>
+                  </ion-list>
+              </div>
+
+                <div class="ion-padding" style="text-align: center;">
+                    <div style="float: left;">
+                      <ion-button *ngIf="checkAns" (click)="prev()">
+                        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+                        precedent
+                      </ion-button>
+                    </div>
+
+                    <span *ngIf="showBtnVld">
+                      <ion-button type="button" (click)="checkAnswer()">
+                        Valider
+                      </ion-button>
+                    </span>
+
+                   <div style="float: right;">
+                      <ion-button class="BtnEnd" *ngIf="checkAns && !hideNextBtn" (click)="next()">
+                        suivant
+                        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+                      </ion-button>
+                    </div>
+                  </div>
+
+             </form>
+          </ion-card>
+      </div>
+
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="tertiary ">
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Generate Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <p>ID :  {{ data.id }} </p><br>
+        <p>Login : {{ data.login }}  </p><br>
+        <p>Firstname : {{ data.firstName }} </p><br>
+        <p>Lastname : {{ data.lastName }} </p><br>
+        <p>Email : {{ data.email }} </p><br>
+        <p>Activated : {{ data.activated }} </p><br>
+        <p>CreateBy : {{ data.createdBy }} </p><br>
+        <p>Authorities : {{ data.authorities }} </p><br>
+        <p>Created Date : {{ data.createdDate }} </p><br>
+        <p>last Modified By : {{ data.lastModifiedBy }} </p><br>
+        <p>last Modified Date : {{ data.lastModifiedDate }} </p>
+        <p> </p>
+    </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" type="submit" color="primary" (click)="generateUser()"> Generate </ion-button>
+ 
+</ion-content>

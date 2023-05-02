@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Stats</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <div *ngIf="showAllEntities" >
+        <div *ngFor="let entity of entities" >
+          <div>
+            <ion-item (click)="openPage(entity)">
+              <h2>{{entity.name}}</h2>
+            </ion-item>
+          </div>
+        </div>     
+      </div>
+      <div *ngIf="!showAllEntities" >
+        <div *ngFor="let entity of entitiesUser" >
+          <div>
+            <ion-item (click)="openPage(entity)">
+              <h2>{{entity.name}}</h2>
+            </ion-item>
+          </div>
+        </div>     
+      </div> 
+  </ion-list>
+
+  <div *ngIf="entities.length === 0">{{ 'EMPTY_ENTITIES_MESSAGE' | translate }}</div>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header color="secondary">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Quizz</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="goToFavouriteList()" slot="end">
+              Mes Favories
+            <ion-icon slot="end" name="star" class="favourite"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content class="ion-padding">
+  <div class="ion-margin">
+    <h3><span>{{ questions.length }} Questions </span></h3>
+  </div>
+  <div class="card">
+    
+    <ion-list>
+      <div *ngFor="let item of questions; let index = index">
+        <ion-item class="ion-margin"  id="label">
+          <ion-label (click)="goDetail(index, questions)" text-wrap><sup>{{ index+1 }}  </sup><br> &nbsp; &nbsp;  {{ item.intitule }} </ion-label>
+          <span (click)="favourite(index)" [ngClass]="{'favourite':  questions[index].favourite} " id="favv">
+            <ion-icon name='star' slot="end"></ion-icon>
+          </span>
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

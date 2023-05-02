@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Question</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button [disabled]="!isReadyToSave" (click)="save()" color="primary">
+        <span *ngIf="platform.is('ios')">{{'DONE_BUTTON' | translate}}</span>
+        <ion-icon name="checkmark" *ngIf="!platform.is('ios')"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form *ngIf="form" name="form" [formGroup]="form" (ngSubmit)="save()">
+    <ion-list>
+     <!-- <ion-item [hidden]="!form.id">
+        <ion-label>ID</ion-label>
+        <ion-input type="hidden" id="id" formControlName="id" readonly></ion-input>
+      </ion-item>-->
+      <ion-item>
+        <ion-label position="floating">Intitule</ion-label>
+        <ion-input type="text" name="intitule" formControlName="intitule"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Image</ion-label>
+        <ion-input type="text" name="image" formControlName="image"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Date Creation</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="dateCreation" id="field_dateCreation"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Last Update</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="lastUpdate" id="field_lastUpdate"></ion-datetime>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

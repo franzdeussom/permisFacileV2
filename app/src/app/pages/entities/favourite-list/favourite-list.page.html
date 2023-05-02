@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>My favourites</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin">
+      <span> {{ nbrFav }} favourites</span>
+  </div>
+  <ion-card class="ion-padding">
+      <ion-list>
+          <div *ngFor="let item of question; let index = index" >
+            <ion-item *ngIf="question[index].favourite" (click)="goToDetails(index, question)">
+              <ion-label text-wrap><sup><em>{{ index+1 }}</em></sup> {{ question[index].intitule }} </ion-label>
+              <span (click)="unsetFavourite(index)" id="favv" class="favourite">
+                <ion-icon name='star' slot="end"></ion-icon>
+              </span>
+            </ion-item>
+          </div>
+       </ion-list>
+  </ion-card>
+</ion-content>

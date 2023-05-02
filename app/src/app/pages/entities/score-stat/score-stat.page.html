@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Score-Statistic</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    
+      <ion-list>
+        <div *ngIf="scoreStat.length === 0" class="ion-margin">
+          <h4> <em>No Score yet...</em> </h4> 
+        </div>
+          <div *ngFor="let element of scoreStat" >
+              <ion-item>
+                <ion-label text-wrap> 
+                  <p> <em> <strong> Quizz N°: {{ element.indexQuestion }} </strong> </em></p> <br>
+                  <p>Nombre de fois Jouées : <strong> {{ element.nbrFoisJoue }} </strong>  </p>
+                  <p>Nombre de fois Trouvées : <span class="nbrTrouve"> {{ element.nbrTrouve }}  </span> </p>
+                  <p>Nombre de fois Ratées : <span class="nbrRate"> {{ element.nbrRate }} </span>  </p>
+                  <p>Nombre de fois Ignorées : <span class="nbrIgnorer"> {{ element.nbrFoisIgnore }} </span>  </p>
+
+                </ion-label>
+              </ion-item>
+          </div>
+       </ion-list>
+  </div>
+
+  <div class="ion-padding">
+      <p><span>Score Total : </span> <span [ngStyle]="{color : getScoreColor()}"> <em> {{  score }} </em>  </span> </p>
+      <ion-button expand="block" type="submit" color="danger" (click)="renit()"> Renitialise Tout </ion-button>
+      <p><ion-button expand="block" type="submit" color="danger" (click)="renitFav()"> Renitialise tous mes favorites </ion-button></p>
+      <p>  
+      <ion-button expand="block" type="submit" color="primary" (click)="refresh()"> Actualise </ion-button>
+      </p>
+  </div>
+       
+</ion-content>

@@ -1,0 +1,45 @@
+application {
+    config {
+        baseName PermisFacileV2,
+        packageName com.gmo.permisfacilev2,
+        applicationType monolith,
+        authenticationType jwt,
+        databaseType sql,
+    	prodDatabaseType mysql,
+        nativeLanguage fr,
+        buildTool maven
+    }
+    entities Question, Reponse, UserDevice
+}
+
+entity Question {
+    intitule String required,
+	image String,
+    dateCreation LocalDate,
+    lastUpdate LocalDate
+}
+
+entity Reponse {
+	intitule String required,
+    reponseUnique Boolean required,
+    bonneReponse Boolean 
+}
+
+entity UserDevice {
+	deviceId String,
+    dateRegistration LocalDate,
+    lastUpdate LocalDate
+}
+
+
+
+relationship OneToOne {
+	UserDevice{userAccount} to User
+}
+
+
+relationship OneToMany {
+  Question{reponses} to Reponse{question}
+}
+
+

@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title> {{ 'TAB3_TITLE' | translate }} </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-button color="tertiary" (click)="goToUpdataPassPage()" >
+  Changer mon mot de passe
+</ion-button>
+<ion-button (click)="logout()" id="logout" color="danger">
+  {{ 'LOGOUT_TITLE' | translate }}
+  <ion-icon slot="end" name="log-out"></ion-icon>
+</ion-button>
+<ion-content></ion-content>
