@@ -1,19 +1,24 @@
 <ion-header>
   <ion-toolbar color="tertiary">
+    <ion-back-button slot="start"></ion-back-button>
     <ion-title>Changer Mot de passe</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-margin">
   <form (submit)="doUpdate()">
     <ion-list>
       <ion-item>
+        <ion-label position="floating">Mot de passe courrant :</ion-label>
+        <ion-input type="password" [(ngModel)]="newData.currentPassword" name="currentPass"></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label position="floating">Nouveau mot de passe :</ion-label>
-        <ion-input type="string" [(ngModel)]="newData.newPass" name="username"></ion-input>
+        <ion-input type="password" [(ngModel)]="newData.newPassword" name="newPass"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Confirmer le mot de passe :</ion-label>
-        <ion-input type="password" [(ngModel)]="newData.confirmPass" name="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="confirmPass" name="password"></ion-input>
       </ion-item>
       <ion-row class="ion-padding">
         <ion-col>

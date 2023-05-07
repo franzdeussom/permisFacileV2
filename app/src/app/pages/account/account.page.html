@@ -3,11 +3,21 @@
     <ion-title> {{ 'TAB3_TITLE' | translate }} </ion-title>
   </ion-toolbar>
 </ion-header>
+
+<div class="ion-margin" style="width: 100%;margin-left: 35%;">
+  <img src="/assets/icon/avatar.svg" alt="Profil">
+</div>
+
 <ion-button color="tertiary" (click)="goToUpdataPassPage()" >
-  Changer mon mot de passe
+   Changer mon mot de passe
 </ion-button>
+
 <ion-button (click)="logout()" id="logout" color="danger">
-  {{ 'LOGOUT_TITLE' | translate }}
-  <ion-icon slot="end" name="log-out"></ion-icon>
+{{ 'LOGOUT_TITLE' | translate }}
+<ion-icon slot="end" name="log-out"></ion-icon>
 </ion-button>
-<ion-content></ion-content>
+
+<ion-content>
+
+
+</ion-content>

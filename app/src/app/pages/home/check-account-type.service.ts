@@ -8,6 +8,7 @@ import { ApiService } from '../../services/api/api.service';
 export class CheckAccountTypeService {
   public isAdministrator: boolean;
   public dataUser : any;
+  public password: any;
   constructor( private api: ApiService) { }
 
   isAdmin(){

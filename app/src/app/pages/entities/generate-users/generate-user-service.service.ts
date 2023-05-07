@@ -10,8 +10,8 @@ export class GenerateUserServiceService {
 
   constructor(private api: ApiService) {   }
 
-   getDataUserGenerate(): Observable<any>{
-    return this.api.post('admin/users/generate', '');
+   getDataUserGenerate(data: any): Observable<any>{
+    return this.api.post('admin/users/generate', data);
   }
 
 }

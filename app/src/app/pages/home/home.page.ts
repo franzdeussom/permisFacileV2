@@ -130,11 +130,6 @@ export class HomePage implements OnInit {
   private goBackToHomePage(): void {
     this.navController.navigateRoot('login');
   }
-  countNbrPlay(){
-    let count = 0;
-    console.log('nbr of questions done :', count);
-    alert(count);
-  }
-  
+
   
 }

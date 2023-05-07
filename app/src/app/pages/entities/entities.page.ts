@@ -1,6 +1,4 @@
 import { CheckAccountTypeService } from './../home/check-account-type.service';
-import { User } from './../../services/user/user.model';
-import { ApiService } from './../../services/api/api.service';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
@@ -14,14 +12,15 @@ export class EntitiesPage implements OnInit{
     { name: 'Question', component: 'QuestionPage', route: 'question' },
     { name: 'Reponse', component: 'ReponsePage', route: 'reponse' },
     { name: 'User Device', component: 'UserDevicePage', route: 'user-device' },
-    { name: 'Mes Favorits', component: 'QuestionFavouriteListPage', route: 'favourite-list' },
+    { name: 'Mes Favoris', component: 'QuestionFavouriteListPage', route: 'favourite-list' },
     { name: 'Score && Statistiques', component: 'QuestionScoreStat', route: 'score-stat' },
     { name: 'Generate Users', component: 'GenerateUsers', route: 'generate-users' }
 
     /* jhipster-needle-add-entity-page - JHipster will add entity pages here */
   ];
+
   entitiesUser: Array<any> = [
-    { name: 'Mes Favorits', component: 'QuestionFavouriteListPage', route: 'favourite-list' },
+    { name: 'Mes Favoris', component: 'QuestionFavouriteListPage', route: 'favourite-list' },
     { name: 'Score && Statistiques', component: 'QuestionScoreStat', route: 'score-stat' },
   ];
 

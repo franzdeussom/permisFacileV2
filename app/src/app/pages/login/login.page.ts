@@ -1,3 +1,4 @@
+import { CheckAccountTypeService } from './../home/check-account-type.service';
 import { Component, OnInit } from '@angular/core';
 import { NavController, ToastController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
@@ -26,6 +27,7 @@ export class LoginPage implements OnInit {
     public loginService: LoginService,
     public toastController: ToastController,
     public navController: NavController,
+    public checkUser: CheckAccountTypeService,
     public device: Device
   ) {}
 
@@ -44,6 +46,7 @@ export class LoginPage implements OnInit {
   doLogin() {
     this.loginService.login(this.account).then(
       () => {
+        this.checkUser.password = this.account.password;
         this.navController.navigateRoot('/tabs');
       },
       async (err) => {
@@ -59,6 +62,6 @@ export class LoginPage implements OnInit {
     );
   }
   goToSignup(){
-    this.navController.navigateForward('signup')
+    this.navController.navigateForward('signup');
   }
 }
