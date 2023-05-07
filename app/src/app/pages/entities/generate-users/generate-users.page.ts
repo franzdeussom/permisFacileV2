@@ -33,7 +33,6 @@ export class GenerateUsersPage implements OnInit {
             .subscribe((resp: User)=>{
               this.data = resp;
               this.showData = true;
-              console.log(resp);
               
           }, (error)=>{
             console.log('error', error.message);
