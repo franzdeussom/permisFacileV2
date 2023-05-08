@@ -14,7 +14,8 @@ export class EntitiesPage implements OnInit{
     { name: 'User Device', component: 'UserDevicePage', route: 'user-device' },
     { name: 'Mes Favoris', component: 'QuestionFavouriteListPage', route: 'favourite-list' },
     { name: 'Score && Statistiques', component: 'QuestionScoreStat', route: 'score-stat' },
-    { name: 'Generate Users', component: 'GenerateUsers', route: 'generate-users' }
+    { name: 'Generate Users', component: 'GenerateUsers', route: 'generate-users' },
+    { name:  'Reset Devise', component: 'ResetUser', route: 'reset-user' }
 
     /* jhipster-needle-add-entity-page - JHipster will add entity pages here */
   ];

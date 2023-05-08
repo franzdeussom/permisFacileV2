@@ -44,6 +44,10 @@ const routes: Routes = [
   {
     path: 'generate-users',
     loadChildren: ()=> import('./generate-users/generate-users.module').then(m => m.GenerateUsersPageModule )
+  },
+  {
+    path: 'reset-user',
+    loadChildren: ()=> import('./reset-user/reset-user.module').then(m=> m.ResetUserPageModule)
   }
   /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
 ];

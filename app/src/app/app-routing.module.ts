@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'update-pwd',
     loadChildren: () => import('./pages/account/update-pwd/update-pwd.module').then( m => m.UpdatePwdPageModule)
   },
+  {
+    path: 'reset-user',
+    loadChildren: () => import('./pages/entities/reset-user/reset-user.module').then( m => m.ResetUserPageModule)
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],

@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UpdatePwdPageRoutingModule } from './update-pwd-routing.module';
+import { ResetUserPageRoutingModule } from './reset-user-routing.module';
 
-import { UpdatePwdPage } from './update-pwd.page';
+import { ResetUserPage } from './reset-user.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    UpdatePwdPageRoutingModule
+    ResetUserPageRoutingModule
   ],
-  declarations: [UpdatePwdPage]
+  declarations: [ResetUserPage]
 })
-export class UpdatePwdPageModule {}
+export class ResetUserPageModule {}
