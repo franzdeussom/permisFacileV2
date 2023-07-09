@@ -141,6 +141,27 @@ public class UserResource {
                     .body(newUser);
         }
 
+<<<<<<< HEAD
+=======
+
+    @PostMapping("/users/resetdevice/{username}")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
+    public ResponseEntity<User> resetUserDevice(@RequestParam("username") String username) throws URISyntaxException {
+        log.debug("REST request to resetUserDevice");
+
+        Optional<User> userOptional = userRepository.findOneByLogin(username);
+        if(userOptional.isPresent()) {
+            User user = userOptional.get();
+            userService.setrecordeddevice(user, false);
+            return ResponseEntity
+                    .created(new URI("/api/admin/users/" + user.getLogin()))
+                    .headers(HeaderUtil.createAlert(applicationName, "userManagement.generated", user.getLogin()))
+                    .body(user);
+        }
+        throw new BadRequestAlertException("can not found username", "username", "username");
+    }
+
+>>>>>>> 7252264bffd98b0401cb3858aebcd1110f1ecef4
     /**
      * {@code PUT /admin/users} : Updates an existing User.
      *

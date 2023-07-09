@@ -29,6 +29,12 @@
             <column name="activated" type="boolean" valueBoolean="false">
                 <constraints nullable="false" />
             </column>
+<<<<<<< HEAD
+=======
+            <column name="recorded_device" type="boolean" valueBoolean="false">
+                <constraints nullable="false" />
+            </column>
+>>>>>>> 7252264bffd98b0401cb3858aebcd1110f1ecef4
             <column name="lang_key" type="varchar(10)"/>
             <column name="activation_key" type="varchar(20)"/>
             <column name="reset_key" type="varchar(20)"/>

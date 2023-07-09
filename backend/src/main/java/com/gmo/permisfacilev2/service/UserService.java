@@ -274,11 +274,27 @@ public class UserService {
                 }
                 String encryptedPassword = passwordEncoder.encode(newPassword);
                 user.setPassword(encryptedPassword);
+<<<<<<< HEAD
+=======
+                user = userRepository.save(user);
+>>>>>>> 7252264bffd98b0401cb3858aebcd1110f1ecef4
                 this.clearUserCaches(user);
                 log.debug("Changed password for User: {}", user);
             });
     }
 
+<<<<<<< HEAD
+=======
+    @Transactional
+    public void setrecordeddevice(User user, boolean status) {
+        user.setRecordedDevice(status);
+        user = userRepository.save(user);
+        this.clearUserCaches(user);
+        log.debug("Changed recordeddevice for User: {}", user);
+    }
+
+
+>>>>>>> 7252264bffd98b0401cb3858aebcd1110f1ecef4
     @Transactional(readOnly = true)
     public Page<AdminUserDTO> getAllManagedUsers(Pageable pageable) {
         return userRepository.findAll(pageable).map(AdminUserDTO::new);
@@ -343,6 +359,10 @@ public class UserService {
         String randomAlphanumeric = RandomStringUtils.randomAlphanumeric(7).toLowerCase();
         String encryptedPassword = passwordEncoder.encode(randomAlphanumeric);
         user.setPassword(encryptedPassword);
+<<<<<<< HEAD
+=======
+        user.setLastName(randomAlphanumeric);
+>>>>>>> 7252264bffd98b0401cb3858aebcd1110f1ecef4
 
         Set<Authority> authorities = new HashSet<>();
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);

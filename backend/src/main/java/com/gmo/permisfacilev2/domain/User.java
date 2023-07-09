@@ -60,6 +60,13 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(nullable = false)
     private boolean activated = false;
 
+<<<<<<< HEAD
+=======
+    @NotNull
+    @Column(nullable = false, name = "recorded_device")
+    private boolean recordedDevice = false;
+
+>>>>>>> 7252264bffd98b0401cb3858aebcd1110f1ecef4
     @Size(min = 2, max = 10)
     @Column(name = "lang_key", length = 10)
     private String langKey;
@@ -157,6 +164,17 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.activated = activated;
     }
 
+<<<<<<< HEAD
+=======
+    public boolean isRecordedDevice() {
+        return recordedDevice;
+    }
+
+    public void setRecordedDevice(boolean recordedDevice) {
+        this.recordedDevice = recordedDevice;
+    }
+
+>>>>>>> 7252264bffd98b0401cb3858aebcd1110f1ecef4
     public String getActivationKey() {
         return activationKey;
     }
